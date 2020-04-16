@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-int main()
+int absolutely_not_main()
 {
     std::cout << "Hello World!\n";
 }
