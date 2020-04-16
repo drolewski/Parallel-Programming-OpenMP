@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="matrix.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="multiply.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -25,6 +22,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="thrmodel.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenMPProject.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
