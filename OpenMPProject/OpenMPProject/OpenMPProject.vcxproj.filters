@@ -27,6 +27,9 @@
     <ClCompile Include="OpenMPProject.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SimpleSequential.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="multiply.h">
