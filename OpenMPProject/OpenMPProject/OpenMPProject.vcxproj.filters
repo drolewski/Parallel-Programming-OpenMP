@@ -30,6 +30,9 @@
     <ClCompile Include="SimpleSequential.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Sequential.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="multiply.h">

@@ -4,7 +4,7 @@
 #define N 21370
 
 
-int main()
+int main1()
 {
 	for (int i = M; i < N; i++)
 	{
