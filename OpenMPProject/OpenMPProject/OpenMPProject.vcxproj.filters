@@ -27,12 +27,15 @@
     <ClCompile Include="OpenMPProject.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SimpleSequential.cpp">
+    <!--<ClCompile Include="SimpleSequential.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Sequential.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
+    </ClCompile>-->
+	<ClCompile Include="SequenceSolution.cpp">
+		<Filter>Source Files</Filter>
+	</ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="multiply.h">

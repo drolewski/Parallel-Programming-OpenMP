@@ -46,13 +46,28 @@ bool checkDivisionBySmallerNumbers(int number) {
 	return true;
 }
 
+bool checkEratosthenesSieve(int primeNumbers[], int iterator, int number) {
+	for (int i = 0; i < iterator; i++) {
+		for (int j = 2; j < primeNumbers[i]; j++) {
+			for (int k = 2; k < j; k++) {
+				if (number == k * j) {
+					return false;
+				}
+			}
+		}
+	}
+	return true;
+}
+
+
 int main()
 {
 	int data[N / 2] = { 0 };
 	int iterator = generatePrimeNumbersArray(data);
 	for (int i = M; i < N; i++) {
 		//if (checkIsNumberPrimeWithArray(data, iterator, i)) { // with array
-		if(checkDivisionBySmallerNumbers(i)){ // division by smaller number
+		//if(checkDivisionBySmallerNumbers(i)){ // division by smaller number
+		if(checkEratosthenesSieve(data, iterator, i)){
 			printf("Prime number: %d\n", i);
 		}
 	}

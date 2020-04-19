@@ -20,4 +20,5 @@ int main1()
 		if (!hasDivider)
 			printf("%d\n", i);
 	}
+	return 0;
 }
