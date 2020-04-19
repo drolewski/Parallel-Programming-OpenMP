@@ -150,8 +150,8 @@
   <ItemGroup>
     <ClCompile Include="OpenMPProject.c" />
     <ClCompile Include="multiply.c" />
-    <!--<ClCompile Include="Sequential.cpp" />
-    <ClCompile Include="SimpleSequential.cpp" />-->
+    <ClCompile Include="Sequential.cpp" />
+    <ClCompile Include="SimpleSequential.cpp" />
 	<ClCompile Include="SequenceSolution.cpp" />
     <ClCompile Include="thrmodel.c" />
     <ClCompile Include="util.c" />

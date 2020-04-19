@@ -53,6 +53,8 @@ bool checkEratosthenesSieve(int primeNumbers[], int iterator, int number) {
 				if (number == k * j) {
 					return false;
 				}
+				if (k * j > number)
+					break;
 			}
 		}
 	}
