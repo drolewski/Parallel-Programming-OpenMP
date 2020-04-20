@@ -7,7 +7,6 @@
 
 int generatePrimeNumbersArray(int numbers[]) {
 	int iterator = 0;
-#pragma omp parallel for
 	for (int i = M; i < N; i++)
 	{
 		bool hasDivider = false;
@@ -28,7 +27,6 @@ int generatePrimeNumbersArray(int numbers[]) {
 }
 
 bool checkIsNumberPrimeWithArray(int primeNumbers[], int iterator, int number) {
-#pragma omp parallel for
 	for (int i = 0; i < iterator; i++) {
 		if (number % primeNumbers[i] == 0 && primeNumbers[i] < number)
 		{
@@ -39,7 +37,6 @@ bool checkIsNumberPrimeWithArray(int primeNumbers[], int iterator, int number) {
 }
 
 bool checkDivisionBySmallerNumbers(int number) {
-#pragma omp parallel for
 	for (int i = 2; i < number; i++)
 	{
 		if (number % i == 0)
@@ -51,10 +48,9 @@ bool checkDivisionBySmallerNumbers(int number) {
 }
 
 bool checkEratosthenesSieve(int primeNumbers[], int iterator, int number) {
-#pragma omp parallel for
 	for (int i = 0; i < iterator; i++) {
 		for (int j = 2; j < primeNumbers[i]; j++) {
-			for (int k = 2; k < j; k++) {
+			for (int k = 2; k <= j; k++) {
 				if (number == k * j) {
 					return false;
 				}
@@ -71,29 +67,30 @@ int main()
 {
 	// procesy otrzymuj¹ ca³¹ tablicê liczb pierwszych -> generowana w sekcji ka¿dego w¹tku, podejscie domenowe,
 	// rozumiem je tak ze tablica wykreœleñ jest wspó³dzielona, a tablica liczb pierwszych oddzielna dla ka¿dego w¹tku
-	/*
-	int solution[N / 2];
+	/*int solution[N / 2];
 	int iter = 0;
 	omp_set_num_threads(4);
 #pragma omp parallel
 	{
 		int data[N / 2] = { 0 };
 		int iterator = generatePrimeNumbersArray(data);
+		int id = omp_get_thread_num();
 #pragma omp parallel for
 		for (int i = M; i < N; i++) {
-			//if (checkIsNumberPrimeWithArray(data, iterator, i)) { // with array
-			//if(checkDivisionBySmallerNumbers(i)){ // division by smaller number
-			if (checkEratosthenesSieve(data, iterator, i)) {
+			if (checkIsNumberPrimeWithArray(data, iterator, i)) { // with array
+			//if(checkDivisionBySmallerNumbers(i)){ // division by smaller 				
+			//if (checkEratosthenesSieve(data, iterator, i)) {
 				solution[iter] = i;
 				++iter;
+				printf("%d , %d\n", id, i);
 			}
 		}
 	}*/
 
 	
-	int iter = 0;
 	int data[N / 2] = { 0 };
 	int iterator = generatePrimeNumbersArray(data);
+	int iter = 0;
 	omp_set_num_threads(4);
 #pragma omp parallel
 	{
@@ -105,11 +102,10 @@ int main()
 			//if(checkDivisionBySmallerNumbers(i)){ // division by smaller number
 			if (checkEratosthenesSieve(data, iterator, i)) {
 				solution[iter] = i;
+#pragma omp atomic
 				++iter;
+				printf("%d , %d\n", id, i);
 			}
-		}
-		for (int i = 0; i < iter; i++) {
-			printf("id %d - sol: %d\n", id, solution[i]);
 		}
 	}
 	
