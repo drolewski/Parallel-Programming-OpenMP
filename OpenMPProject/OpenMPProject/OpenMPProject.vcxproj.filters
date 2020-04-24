@@ -27,5 +27,7 @@
     <Text Include="Sequential.txt" />
     <Text Include="SimpleSequential.txt" />
     <Text Include="siev_pararell_function.txt" />
+    <Text Include="rolex_domain.txt" />
+    <Text Include="rolex_function.txt" />
   </ItemGroup>
 </Project>

@@ -28,7 +28,7 @@ int generatePrimeNumbersArray(int numbers[]) {
 }
 
 // sito z podejsciem funckyjnym 1 -> wygenerowana sekwencyjnie macierz liczb pierwszych
-inline void domain_method() {
+inline void function_method() {
 	char* deletionsMatrix = new char[lenght];
 	int solution[N / 2] = { 0 };
 	int primeNumbersArray[N / 2] = { 0 };
@@ -92,5 +92,5 @@ inline void domain_method() {
 
 int main()
 {
-	domain_method();
+	function_method();
 }

@@ -154,6 +154,8 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Rolex1.txt" />
+    <Text Include="rolex_domain.txt" />
+    <Text Include="rolex_function.txt" />
     <Text Include="Sequential.txt" />
     <Text Include="sieve_seq.txt" />
     <Text Include="siev_paralell_naive.txt" />
