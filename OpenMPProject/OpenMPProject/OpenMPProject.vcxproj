@@ -120,13 +120,15 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
+      <ConformanceMode>false</ConformanceMode>
+      <OpenMPSupport>true</OpenMPSupport>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <StackReserveSize>41943040</StackReserveSize>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -148,16 +150,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="OpenMPProject.c" />
-    <ClCompile Include="multiply.c" />
-    <ClCompile Include="Sequential.cpp" />
-    <ClCompile Include="SimpleSequential.cpp" />
-	<ClCompile Include="SequenceSolution.cpp" />
-    <ClCompile Include="thrmodel.c" />
-    <ClCompile Include="util.c" />
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="multiply.h" />
+    <Text Include="Rolex1.txt" />
+    <Text Include="Sequential.txt" />
+    <Text Include="sieve_seq.txt" />
+    <Text Include="siev_paralell_naive.txt" />
+    <Text Include="siev_pararell_domain.txt" />
+    <Text Include="SimpleSequential.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

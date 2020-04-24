@@ -15,31 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="multiply.c">
+    <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="util.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="thrmodel.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OpenMPProject.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SimpleSequential.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Sequential.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-	<ClCompile Include="SequenceSolution.cpp">
-		<Filter>Source Files</Filter>
-	</ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="multiply.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <Text Include="Rolex1.txt" />
+    <Text Include="sieve_seq.txt" />
+    <Text Include="siev_paralell_naive.txt" />
+    <Text Include="siev_pararell_domain.txt" />
+    <Text Include="Sequential.txt" />
+    <Text Include="SimpleSequential.txt" />
   </ItemGroup>
 </Project>
