@@ -158,6 +158,7 @@
     <Text Include="sieve_seq.txt" />
     <Text Include="siev_paralell_naive.txt" />
     <Text Include="siev_pararell_domain.txt" />
+    <Text Include="siev_pararell_function.txt" />
     <Text Include="SimpleSequential.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

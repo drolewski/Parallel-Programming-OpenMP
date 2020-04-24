@@ -26,5 +26,6 @@
     <Text Include="siev_pararell_domain.txt" />
     <Text Include="Sequential.txt" />
     <Text Include="SimpleSequential.txt" />
+    <Text Include="siev_pararell_function.txt" />
   </ItemGroup>
 </Project>

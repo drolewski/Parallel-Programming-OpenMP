@@ -53,13 +53,17 @@ inline void domain_method() {
 
 		for (int i = 0; i < primeNumbersArrayLength; i++)
 		{
-			for (int j = 3; primeNumbersArray[i] * j <= right; j += 2)
+			int firstJ = left/ primeNumbersArray[i];
+			if (firstJ < 3) firstJ = 3;
+			else firstJ = firstJ -1 + firstJ % 2;
+				//printf("%d:firstJ dla %d i %d:%d\n", id, left, primeNumbersArray[i], firstJ);
+			for (int j = firstJ; primeNumbersArray[i] * j <= right; j += 2)
 			{
-				if (primeNumbersArray[i] * j > left)
-				{
+			/*	if (primeNumbersArray[i] * j > left)
+				{*/
 					deletionsMatrix[primeNumbersArray[i] * j / 2] = 0;
 					//printf("%d:wykreslam %d * %d = %d\n",id, primeNumbersArray[i], j, primeNumbersArray[i] * j);
-				}
+				//}
 			}
 		}
 
