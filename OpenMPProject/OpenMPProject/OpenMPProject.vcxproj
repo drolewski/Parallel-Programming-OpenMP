@@ -162,6 +162,10 @@
     <Text Include="siev_pararell_domain.txt" />
     <Text Include="siev_pararell_function.txt" />
     <Text Include="SimpleSequential.txt" />
+    <Text Include="Update1- sequential sieve\rolex_domain.txt" />
+    <Text Include="Update1- sequential sieve\rolex_function.txt" />
+    <Text Include="Update1- sequential sieve\siev_pararell_domain.txt" />
+    <Text Include="Update1- sequential sieve\siev_pararell_function.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,11 +1,10 @@
-﻿#include<math.h>
+#include<math.h>
 #include <stdio.h>
 #include <omp.h>
 #define M 2
-#define N 250
+#define N 49
 #define NUM_THREADS 4
 # define lenght (N - 1) / 2 + 1
-
 
 inline int generatePrimeNumbersArray(int solution[]) {
 	int last = sqrt(N);
@@ -28,8 +27,8 @@ inline int generatePrimeNumbersArray(int solution[]) {
 	return iterator;
 }
 
-// sito z podejsciem funckyjnym 1 -> wygenerowana sekwencyjnie macierz liczb pierwszych
-inline void function_method() {
+// sito z podejsciem domenowym 1 -> wygenerowana sekwencyjnie macierz liczb pierwszych
+inline void domain_method() {
 	char* deletionsMatrix = new char[lenght];
 	int solution[N / 2] = { 0 };
 	int primeNumbersArray[N / 2] = { 0 };
@@ -41,36 +40,33 @@ inline void function_method() {
 	int id = 0;
 	int start_num = 0;
 	int left, right = 0;
-	int fragmentLenght = primeNumbersArrayLength / NUM_THREADS;
-	int restOfNumbers = primeNumbersArrayLength % NUM_THREADS;
-	if (fragmentLenght == 0)
-	{
-		for (int i = 0; fragmentLenght <= 0; i++)
-			fragmentLenght = primeNumbersArrayLength / (NUM_THREADS - i);
-		restOfNumbers = 0;
-
-	}
-
+	int fragmentLenght = (N - M) / NUM_THREADS;
+	int restOfNumbers = (N - M) % NUM_THREADS;
 	printf("%d\n", fragmentLenght);
 #pragma omp parallel private(id, left, right)
 	{
 		id = omp_get_thread_num();
-		left = fragmentLenght * id;
-		right = fragmentLenght * (id + 1);
+		left = M + fragmentLenght * id;
+		right = M + fragmentLenght * (id + 1);
 		if (id == NUM_THREADS - 1) right += restOfNumbers;
 		//printf("%d:<%d,%d)\n", id, left, right);
 
-		for (int i = left; i < right; i++)
+		for (int i = 0; i < primeNumbersArrayLength; i++)
 		{
-			for (int j = 3; primeNumbersArray[i] * j <= N; j += 2)
+			int firstJ = left / primeNumbersArray[i];
+			if (firstJ < 3) firstJ = 3;
+			else firstJ = firstJ - 1 + firstJ % 2;
+			//printf("%d:firstJ dla %d i %d:%d\n", id, left, primeNumbersArray[i], firstJ);
+			for (int j = firstJ; primeNumbersArray[i] * j <= right; j += 2)
 			{
-				if (primeNumbersArray[i] * j > left)
-				{
-					deletionsMatrix[primeNumbersArray[i] * j / 2] = 0;
-					//printf("%d:wykreslam %d * %d = %d\n", id, primeNumbersArray[i], j, primeNumbersArray[i] * j);
-				}
+				/*	if (primeNumbersArray[i] * j > left)
+					{*/
+				deletionsMatrix[primeNumbersArray[i] * j / 2] = 0;
+				printf("%d:wykreslam %d * %d = %d\n",id, primeNumbersArray[i], j, primeNumbersArray[i] * j);
+			//}
 			}
 		}
+
 
 	}
 
@@ -93,5 +89,5 @@ inline void function_method() {
 
 int main()
 {
-	function_method();
+	domain_method();
 }
