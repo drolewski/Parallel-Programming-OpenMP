@@ -1,11 +1,11 @@
 ﻿#include<math.h>
 #include <stdio.h>
 #include <omp.h>
+#include <vector>
 #define M 2
-#define N 250
-#define NUM_THREADS 4
+#define N 137000
+#define NUM_THREADS 1
 # define lenght (N - 1) / 2 + 1
-
 
 inline int generatePrimeNumbersArray(int solution[]) {
 	int last = sqrt(N);
@@ -50,6 +50,7 @@ inline void function_method() {
 		restOfNumbers = 0;
 
 	}
+	int* primeNumbersArrayPartial = new int[restOfNumbers + fragmentLenght];
 
 	printf("%d\n", fragmentLenght);
 #pragma omp parallel private(id, left, right)
@@ -58,16 +59,18 @@ inline void function_method() {
 		left = fragmentLenght * id;
 		right = fragmentLenght * (id + 1);
 		if (id == NUM_THREADS - 1) right += restOfNumbers;
-		//printf("%d:<%d,%d)\n", id, left, right);
+		std::copy(primeNumbersArray + left, primeNumbersArray + right, primeNumbersArrayPartial);
+		printf("%d:<%d,%d)\n", id, left, right);
 
 		for (int i = left; i < right; i++)
 		{
-			for (int j = 3; primeNumbersArray[i] * j <= N; j += 2)
+			for (int j = 3; primeNumbersArrayPartial[i - left] * j <= N; j += 2)
 			{
-				if (primeNumbersArray[i] * j > left)
+				if (primeNumbersArrayPartial[i - left] * j > left)
 				{
-					deletionsMatrix[primeNumbersArray[i] * j / 2] = 0;
-					//printf("%d:wykreslam %d * %d = %d\n", id, primeNumbersArray[i], j, primeNumbersArray[i] * j);
+					deletionsMatrix[primeNumbersArrayPartial[i - left] * j / 2] = 0;
+					//if(id == 0)
+					//printf("%d:wykreslam %d * %d = %d\n", id, primeNumbersArrayPartial[i - left], j, primeNumbersArrayPartial[i - left] * j);
 				}
 			}
 		}
